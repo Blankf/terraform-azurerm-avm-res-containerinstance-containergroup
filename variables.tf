@@ -35,21 +35,6 @@ variable "containers" {
       port     = number
       protocol = string
     }))
-    volumes = map(object({
-      mount_path           = string
-      name                 = string
-      read_only            = optional(bool, false)
-      empty_dir            = optional(bool, false)
-      secret               = optional(map(string), null)
-      storage_account_name = optional(string, null)
-      storage_account_key  = optional(string, null)
-      share_name           = optional(string, null)
-      git_repo = optional(object({
-        url       = optional(string, null)
-        directory = optional(string, null)
-        revision  = optional(string, null)
-      }))
-    }))
     environment_variables        = optional(map(string), {})
     secure_environment_variables = optional(map(string), {})
     commands                     = optional(list(string), null)
